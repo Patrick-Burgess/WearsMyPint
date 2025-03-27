@@ -1,0 +1,15 @@
+[
+    {
+      "id": 1,
+      "name": "The Red Lion",
+      "location": "High Street",
+      "description": "A cozy pub with a fireplace and great selection of ales."
+    },
+    {
+      "id": 2,
+      "name": "The Queen's Head",
+      "location": "Market Square",
+      "description": "Known for friendly staff and live music nights."
+    }
+  ]
+  
