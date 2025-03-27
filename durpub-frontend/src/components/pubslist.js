@@ -33,10 +33,10 @@ function PubsList() {
                 </p>
                 {/* Additional pub details */}
                 <p className="card-text">
-                  <strong>Average Pint Price:</strong> £{pub.average_pint_price}
+                  <strong>Opening Hours:</strong> {pub.opening_hours}
                 </p>
                 <p className="card-text">
-                  <strong>Opening Hours:</strong> {pub.opening_hours}
+                  <strong>Average Pint Price:</strong> £{pub.average_pint_price}
                 </p>
                 {/* Example button or link if you have more details */}
                 <button className="btn btn-primary mt-auto">View Details</button>
