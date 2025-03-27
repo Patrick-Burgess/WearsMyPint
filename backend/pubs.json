@@ -1,15 +1,42 @@
 [
-    {
-      "id": 1,
-      "name": "The Red Lion",
-      "location": "High Street",
-      "description": "A cozy pub with a fireplace and great selection of ales."
-    },
-    {
-      "id": 2,
-      "name": "The Queen's Head",
-      "location": "Market Square",
-      "description": "Known for friendly staff and live music nights."
-    }
-  ]
-  
+  {
+    "id": 1,
+    "name": "The Red Lion",
+    "average_pint_price": 4.5,
+    "location": "High Street",
+    "opening_hours": "12:00 PM - 11:00 PM",
+    "description": "A cozy pub with a fireplace and great selection of ales."
+  },
+  {
+    "id": 2,
+    "name": "The Queen's Head",
+    "average_pint_price": 5.0,
+    "location": "Market Square",
+    "opening_hours": "11:00 AM - 12:00 AM",
+    "description": "Known for friendly staff and live music nights."
+  },
+  {
+    "id": 3,
+    "name": "The Crown and Anchor",
+    "average_pint_price": 4.8,
+    "location": "Riverside",
+    "opening_hours": "10:00 AM - 11:30 PM",
+    "description": "A riverside pub with stunning views and a great beer garden."
+  },
+  {
+    "id": 4,
+    "name": "The Fox and Hounds",
+    "average_pint_price": 4.2,
+    "location": "Village Green",
+    "opening_hours": "12:00 PM - 10:30 PM",
+    "description": "A traditional pub with hearty meals and a warm atmosphere."
+  },
+  {
+    "id": 5,
+    "name": "The Jolly Sailor",
+    "average_pint_price": 4.7,
+    "location": "Harbor Road",
+    "opening_hours": "11:00 AM - 11:00 PM",
+    "description": "A nautical-themed pub with fresh seafood and craft beers."
+  }
+]
