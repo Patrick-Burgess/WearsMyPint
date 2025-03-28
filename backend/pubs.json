@@ -24,7 +24,8 @@
     "lng": -1.576782983049647,
     "on_tap": [
       {"name": "Carlsberg", "price": 4.8},
-      {"name": "Heineken", "price": 5.2}
+      {"name": "Heineken", "price": 5.2},
+      {"name": "Strongbow", "price": 4.5}
     ]
   },
   {
