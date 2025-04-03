@@ -1,5 +1,7 @@
+import sys
 import json
 import itertools
+
 
 # Pub nodes contain the lat and lng coordinates of the pub
 # and the id of the pub
@@ -36,10 +38,12 @@ def getPubCoords(pubData, startID, goalID):
             goalPubNode = PubNode(dic['id'], dic['lat'], dic['lng'])
         else:
             pubLocationData.append(PubNode(dic['id'], dic['lat'], dic['lng']))
+
+
     return (pubLocationData, startPubNode, goalPubNode)
 
 
-def bruteForce(jsonData, startID, goalID):
+def bruteForce(pubData, startID, goalID):
     # Calculates the total distance of a path given an array of PubNode objects
     def calculatePathDistance(path):
         totalDistance = 0
@@ -62,18 +66,21 @@ def bruteForce(jsonData, startID, goalID):
                 shortestRoute = path
         return shortestRoute, shortestDistance
     
-    pubData = parseJSON(jsonData)
     pubLocationData, startPubNode, goalPubNode = getPubCoords(pubData, startID, goalID)
     shortestRoute, shortestDistance = findShortestRoute(pubLocationData, startPubNode, goalPubNode)
 
-    print("Shortest Route:")
-    for node in shortestRoute:
-        print(node)
-    print("Shortest Distance:", shortestDistance)
+    route_ids = [pub.id for pub in shortestRoute]
+    return { "route": route_ids }
 
 
 
+if __name__ == "__main__":
+    input_data = json.loads(sys.stdin.read())
 
-with open('testData.json', 'r') as f:
-    jsonData = f.read()
-    bruteForce(jsonData, 1, 5)
+    pubData = input_data['pubData']   
+    startID = int(input_data['startPubID'])
+    goalID = int(input_data['endPubID'])
+
+    result = bruteForce(pubData, startID, goalID)
+    print(json.dumps(result))
+

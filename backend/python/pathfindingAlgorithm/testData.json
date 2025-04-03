@@ -139,5 +139,89 @@
         {"name": "Corona", "price": 5.0},
         {"name": "Budweiser", "price": 4.9}
       ]
+    },
+    {
+      "id": 11,
+      "name": "Van Mildert",
+      "average_pint_price": 4.7,
+      "location": "The Hill",
+      "opening_hours": "11:00 AM - 11:00 PM",
+      "description": "A relaxed pub with a focus on local ales and ciders.",
+      "lat": 54.76317255358239,
+      "lng": -1.5810320045075448,
+      "on_tap": [
+        {"name": "Corona", "price": 5.0},
+        {"name": "Budweiser", "price": 4.9}
+      ]
+    },
+    {
+      "id": 12,
+      "name": "St Aidans",
+      "average_pint_price": 4.7,
+      "location": "The Hill",
+      "opening_hours": "11:00 AM - 11:00 PM",
+      "description": "A cozy pub with a fireplace and a great selection of wines.",
+      "lat": 54.76515184871431,
+      "lng": -1.5842395400058387,
+      "on_tap": [
+        {"name": "Corona", "price": 5.0},
+        {"name": "Budweiser", "price": 4.9}
+      ]
+    },
+    {
+      "id": 13,
+      "name": "John Snow",
+      "average_pint_price": 4.7,
+      "location": "The Hill",
+      "opening_hours": "11:00 AM - 11:00 PM",
+      "description": "A pub with a rich history and a welcoming community vibe.",
+      "lat": 54.76240564733939,
+      "lng": -1.5849819461932055,
+      "on_tap": [
+        {"name": "Corona", "price": 5.0},
+        {"name": "Budweiser", "price": 4.9}
+      ]
+    },
+    {
+      "id": 14,
+      "name": "South",
+      "average_pint_price": 4.7,
+      "location": "The Hill",
+      "opening_hours": "11:00 AM - 11:00 PM",
+      "description": "A trendy pub with a focus on craft beers and gourmet snacks.",
+      "lat": 54.761841804312084,
+      "lng": -1.58250466729439,
+      "on_tap": [
+        {"name": "Corona", "price": 5.0},
+        {"name": "Budweiser", "price": 4.9}
+      ]
+    },
+    {
+      "id": 15,
+      "name": "Josephine Butler",
+      "average_pint_price": 4.7,
+      "location": "The Hill",
+      "opening_hours": "11:00 AM - 11:00 PM",
+      "description": "A stylish pub with a rooftop terrace and stunning views.",
+      "lat": 54.75988699964311,
+      "lng": -1.5796728329153673,
+      "on_tap": [
+        {"name": "Corona", "price": 5.0},
+        {"name": "Budweiser", "price": 4.9}
+      ]
+    },
+    {
+      "id": 16,
+      "name": "Stevenson",
+      "average_pint_price": 4.7,
+      "location": "The Hill",
+      "opening_hours": "11:00 AM - 11:00 PM",
+      "description": "A modern pub with a relaxed vibe and a great selection of lagers.",
+      "lat": 54.75958836230034,
+      "lng": -1.5813269309964602,
+      "on_tap": [
+        {"name": "Corona", "price": 5.0},
+        {"name": "Budweiser", "price": 4.9}
+      ]
     }
-]
+  ]
