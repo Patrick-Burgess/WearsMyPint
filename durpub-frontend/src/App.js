@@ -2,6 +2,7 @@
 import React from "react";
 import PubsList from "./components/pubslist.js";
 import PubsMap from "./components/PubsMap";
+import PubRoutingForm from "./components/pubRoutingForm.js";
 
 function App() {
   return (
@@ -11,7 +12,12 @@ function App() {
       <br />
       <br />
       <PubsList />
+
+      <br />
+      <br />
+      <PubRoutingForm />
     </div>
+    
   );
 }
 
