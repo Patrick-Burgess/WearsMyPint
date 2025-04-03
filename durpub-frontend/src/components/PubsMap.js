@@ -12,17 +12,8 @@ const customMarkerIcon = L.icon({
     popupAnchor: [0, -32]      // if you use a popup, offset the popup
   });
 
-function PubsMap() {
-  const [pubs, setPubs] = useState([]);
+function PubsMap({pubs}) {
   const [selectedPub, setSelectedPub] = useState(null);
-
-  useEffect(() => {
-    // Replace with your backend endpoint
-    fetch("http://localhost:3001/api/pubs")
-      .then((response) => response.json())
-      .then((data) => setPubs(data))
-      .catch((error) => console.error("Error fetching pubs:", error));
-  }, []);
 
   // This function is called when a marker is clicked
   const handleMarkerClick = (pub) => {
