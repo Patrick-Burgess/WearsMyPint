@@ -2,7 +2,7 @@
 import React from "react";
 import PubsList from "./components/pubslist.js";
 import PubsMap from "./components/PubsMap";
-import PubRoutingForm from "./components/pubRoutingForm.js";
+import FetchPubs from "./components/fetchPubs.js";
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
 
       <br />
       <br />
-      <PubRoutingForm />
+      <FetchPubs />
     </div>
     
   );
