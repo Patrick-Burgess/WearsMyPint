@@ -1,6 +1,4 @@
 // PubsList.js
-import React, { useEffect, useState } from "react";
-
 function PubsList({pubs}) {
   return (
     <div className="container mt-4">

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 function PubRoutingForm({ pubs, route, setRoute }) {
   const [startPubID, setStartPubID] = useState("");
