@@ -8,6 +8,8 @@ import PubsMap from "./PubsMap";
 // such as PubRoutingForm
 function FetchPubs() {
     const [pubs, setPubs] = useState([]);
+    const [route, setRoute] = useState([]);
+    // const [latlngs, setLatlngs] = useState([])
 
     useEffect(() => {
         fetch("http://localhost:3001/api/pubs")
@@ -17,13 +19,13 @@ function FetchPubs() {
     }, []);
     return (
         <>
-        <PubsMap pubs={pubs} />
+        <PubsMap pubs={pubs} route={route}/>
         <br />
         <br />
         <PubsList pubs={pubs} />
         <br />
         <br />
-        <PubRoutingForm pubs={pubs} />
+        <PubRoutingForm pubs={pubs} route={route} setRoute={setRoute}/>
         </>
     )
 }

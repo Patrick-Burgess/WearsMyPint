@@ -11,3 +11,16 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.numbered-marker {
+  background-color: #3498db;
+  border-radius: 50%;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 30px;
+  width: 30px;
+  height: 30px;
+  box-shadow: 0 0 3px rgba(0,0,0,0.6);
+}

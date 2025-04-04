@@ -1,4 +1,5 @@
 // server.js
+require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const { spawn } = require("child_process");
@@ -18,6 +19,7 @@ app.get("/api/pubs", (req, res) => {
   res.json(pubs);
 });
 
+// I would like to modularise this but i don't know how ?
 // !!!!!! THIS ONLY WORKS FOR SMALL INPUT i.e. < 10 pubs (as its O(n!))
 // It also dosen't work if the start and end pub are the same at the moment
 app.post("/api/pubs/route", async (req, res) => {
@@ -68,6 +70,65 @@ app.post("/api/pubs/route", async (req, res) => {
     console.error("Error fetching pub data:", error);
     res.status(500).json({ error: "Failed to fetch pub data" });
   }
+});
+
+// This route calls an external api (openrouteservice) and finds the walking path 
+// between two pubs.
+app.post("/api/pubs/walking-route", async (req, res) => {
+  // takes a list of pubs IDs
+  const { pubIDs } = req.body;
+
+  if (!pubIDs) {
+    return res.status(400).json({ error: "Missing pubIDs." });
+  }
+
+  const ids = pubIDs.map(Number)
+  
+  // Checks if any ID in the provided pubID is an INVALID ID (i.e doesn't exist in pubs.json)
+  const missingIds = ids.filter((id) => !pubs.find((p) => p.id === id));
+
+  if (missingIds.length > 0) {
+    return res.status(400).json({
+      error: `Invalid pub ID(s): ${missingIds.join(", ")}`
+    });
+  }
+
+  // getes the lng and lat from the pubs
+  const coordinates = ids.map((id) => {
+    const pub = pubs.find((p) => p.id === id);
+    return [pub.lng, pub.lat]; 
+  });
+
+
+  try {
+    //apiKey for openrouteservice (uses .env for security)
+    const apiKey = process.env.ROUTE_API_KEY;
+
+
+    if (!apiKey) {
+      return res.status(500).json({ error: "Missing routing API key." });
+    }
+
+    const url = `https://api.openrouteservice.org/v2/directions/foot-walking`;
+
+    // posts a list of coordinates to foot-walking api
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Authorization": apiKey,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ coordinates }),
+    });
+    const data = await response.json();
+    
+    // console.log(data)
+    res.json(data);
+  } catch (error) {
+    console.error("Error fetching external route:", error);
+    res.status(500).json({ error: "Failed to fetch route." });
+  }
+
 });
 
 // Start the server

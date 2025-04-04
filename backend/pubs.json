@@ -69,5 +69,75 @@
       {"name": "Corona", "price": 5.0},
       {"name": "Budweiser", "price": 4.9}
     ]
+  },
+  {
+    "id": 6,
+    "name": "St Cuthberts",
+    "average_pint_price": 4.7,
+    "location": "The Bailey",
+    "opening_hours": "11:00 AM - 11:00 PM",
+    "description": "A charming pub with a rustic interior and a great selection of ales.",
+    "lat": 54.77077438605246,
+    "lng": -1.5775879640359844,
+    "on_tap": [
+      {"name": "Corona", "price": 5.0},
+      {"name": "Budweiser", "price": 4.9}
+    ]
+  },
+  {
+    "id": 7,
+    "name": "St Marys",
+    "average_pint_price": 4.7,
+    "location": "The Hill",
+    "opening_hours": "11:00 AM - 11:00 PM",
+    "description": "A lively pub with regular quiz nights and live music events.",
+    "lat": 54.76629478585301,
+    "lng": -1.577757872650435,
+    "on_tap": [
+      {"name": "Corona", "price": 5.0},
+      {"name": "Budweiser", "price": 4.9}
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Greys",
+    "average_pint_price": 4.7,
+    "location": "The Hill",
+    "opening_hours": "11:00 AM - 11:00 PM",
+    "description": "A modern pub with a wide range of craft beers and cocktails.",
+    "lat": 54.764809855032034,
+    "lng": -1.5754408714745514,
+    "on_tap": [
+      {"name": "Corona", "price": 5.0},
+      {"name": "Budweiser", "price": 4.9}
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Collingwood",
+    "average_pint_price": 4.7,
+    "location": "The Hill",
+    "opening_hours": "11:00 AM - 11:00 PM",
+    "description": "A family-friendly pub with a spacious beer garden.",
+    "lat": 54.76275673931081,
+    "lng": -1.5771552366439878,
+    "on_tap": [
+      {"name": "Corona", "price": 5.0},
+      {"name": "Budweiser", "price": 4.9}
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Trevs",
+    "average_pint_price": 4.7,
+    "location": "The Hill",
+    "opening_hours": "11:00 AM - 11:00 PM",
+    "description": "A student favorite with affordable drinks and a vibrant atmosphere.",
+    "lat": 54.76454253968807,
+    "lng": -1.5796535554551212,
+    "on_tap": [
+      {"name": "Corona", "price": 5.0},
+      {"name": "Budweiser", "price": 4.9}
+    ]
   }
 ]
