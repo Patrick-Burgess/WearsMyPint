@@ -1,20 +1,5 @@
 // PubsList.js
-import React, { useEffect, useState } from "react";
-
-function PubsList() {
-  const [pubs, setPubs] = useState([]);
-
-  useEffect(() => {
-    fetch("http://localhost:3001/api/pubs") // your backend endpoint
-      .then((response) => response.json())
-      .then((data) => {
-        setPubs(data);
-      })
-      .catch((error) => {
-        console.error("Error fetching pubs:", error);
-      });
-  }, []);
-
+function PubsList({pubs}) {
   return (
     <div className="container mt-4">
       <h2 className="mb-4">All Pubs</h2>

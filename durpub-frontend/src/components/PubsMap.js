@@ -3,6 +3,8 @@ import React, { useState, useEffect } from "react";
 import { MapContainer, TileLayer, Marker } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
+import polyline from "@mapbox/polyline";
+import { Polyline } from "react-leaflet"
 
 // Create a custom icon using your marker image
 const customMarkerIcon = L.icon({
@@ -12,17 +14,21 @@ const customMarkerIcon = L.icon({
     popupAnchor: [0, -32]      // if you use a popup, offset the popup
   });
 
-function PubsMap() {
-  const [pubs, setPubs] = useState([]);
+// these numbered icons are displayed once a route has been selected
+function createNumberedIcon(number) {
+  return L.divIcon({
+    className: "numbered-marker",
+    html: `<div class="marker-number">${number}</div>`,
+    iconSize: [30, 30],
+    iconAnchor: [15, 30],
+  });
+}
+
+function PubsMap({pubs, route}) {
   const [selectedPub, setSelectedPub] = useState(null);
 
-  useEffect(() => {
-    // Replace with your backend endpoint
-    fetch("http://localhost:3001/api/pubs")
-      .then((response) => response.json())
-      .then((data) => setPubs(data))
-      .catch((error) => console.error("Error fetching pubs:", error));
-  }, []);
+  // called decodedRoute because ors api sends back some cryptic ass string of info
+  const [decodedRoute, setDecodedRoute] = useState([])
 
   // This function is called when a marker is clicked
   const handleMarkerClick = (pub) => {
@@ -31,6 +37,25 @@ function PubsMap() {
 
   // Center the map around Durham (approx lat/lng)
   const durhamCenter = [54.767999999999999, -1.5774328241809128];
+
+  useEffect(() => {
+    if (route.length < 2) return; // Need at least start and end
+
+    fetch("http://localhost:3001/api/pubs/walking-route", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ pubIDs: route }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        const decoded = polyline.decode(data.routes[0].geometry);
+        // ors uses lngslat but leaflet uses latlng, so need to flip
+        const latlngs = decoded.map(([lat, lng]) => [lat, lng]);
+        setDecodedRoute(latlngs);
+      })
+      .catch((err) => console.error("Error getting route:", err));
+  }, [route]); // updates when there is a route to display (i.e when route updates)
+
 
   return (
     <div style={{ display: "flex", height: "75vh" }}>
@@ -46,7 +71,9 @@ function PubsMap() {
             OpenStreetMap</a>'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
-          {pubs.map((pub) => (
+          {route.length === 0 ? (
+  // Classic markers for all pubs when no route is selected
+          pubs.map((pub) => (
             <Marker
               key={pub.id}
               position={[pub.lat, pub.lng]}
@@ -54,9 +81,30 @@ function PubsMap() {
               eventHandlers={{
                 click: () => handleMarkerClick(pub)
               }}
-            >
-            </Marker>
-          ))}
+            />
+          ))
+        ) : (
+          // Numbered route markers in order
+          route.map((id, index) => {
+            const pub = pubs.find((p) => p.id === id);
+            if (!pub) return null;
+
+            return (
+              <Marker
+                key={pub.id}
+                position={[pub.lat, pub.lng]}
+                icon={createNumberedIcon(index + 1)}
+                eventHandlers={{
+                  click: () => handleMarkerClick(pub)
+                }}
+              />
+            );
+          })
+        )}
+
+          {decodedRoute.length > 0 && (
+            <Polyline positions={decodedRoute} pathOptions={{ color: "red" }} />
+          )}
         </MapContainer>
       </div>
 
