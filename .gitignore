@@ -3,6 +3,7 @@
 # dependencies
 durpub-frontend/node_modules
 durpub-frontend/node_modules/.cache
+backend/node_modules
 /node_modules
 /.pnp
 .pnp.js
