@@ -1,37 +1,36 @@
 [
   {
     "id": 1,
-    "name": "The Vern",
-    "average_pint_price": 4.5,
-    "location": "Rushford Court",
-    "opening_hours": "12:00 PM - 11:00 PM",
-    "description": "A popular student hangout with a relaxed atmosphere and affordable drinks.",
-    "lat": 54.77857467583371,
-    "lng": -1.585223859007222,
+    "name": "Collingwood College Bar",
+    "average_pint_price": 0,
+    "location": "The Hill",
+    "opening_hours": "11:00 AM - 11:00 PM",
+    "description": "A family-friendly pub with a spacious beer garden.",
+    "lat": 54.76275673931081,
+    "lng": -1.5771552366439878,
     "on_tap": [
-      {"name": "Strongbow", "price": 5},
-      {"name": "Guinness", "price": 5.5}
+      {"name": "Corona", "price": 5.0},
+      {"name": "Budweiser", "price": 4.9}
     ]
   },
   {
     "id": 2,
-    "name": "The Undercroft",
-    "average_pint_price": 5.0,
-    "location": "Castle",
-    "opening_hours": "11:00 AM - 12:00 AM",
-    "description": "A historic pub located under the castle, known for its unique ambiance.",
-    "lat": 54.77566479065893,
-    "lng": -1.576782983049647,
+    "name": "Grey College Bar",
+    "average_pint_price": 0,
+    "location": "The Hill",
+    "opening_hours": "11:00 AM - 11:00 PM",
+    "description": "A modern pub with a wide range of craft beers and cocktails.",
+    "lat": 54.764809855032034,
+    "lng": -1.5754408714745514,
     "on_tap": [
-      {"name": "Carlsberg", "price": 4.8},
-      {"name": "Heineken", "price": 5.2},
-      {"name": "Strongbow", "price": 4.5}
+      {"name": "Corona", "price": 5.0},
+      {"name": "Budweiser", "price": 4.9}
     ]
   },
   {
     "id": 3,
-    "name": "Hatfield",
-    "average_pint_price": 4.8,
+    "name": "Hatfield College Bar",
+    "average_pint_price": 0,
     "location": "The Bailey",
     "opening_hours": "10:00 AM - 11:30 PM",
     "description": "A vibrant pub with a riverside view, perfect for sunny afternoons.",
@@ -44,8 +43,50 @@
   },
   {
     "id": 4,
-    "name": "St Chads",
-    "average_pint_price": 4.2,
+    "name": "Josephine Butler College Bar",
+    "average_pint_price": 0,
+    "location": "The Hill",
+    "opening_hours": "10:00 AM - 11:30 PM",
+    "description": "A vibrant pub with a riverside view, perfect for sunny afternoons.",
+    "lat": 54.75976588780357,
+    "lng": -1.5797947495180495,
+    "on_tap": [
+      {"name": "Peroni", "price": 5.5},
+      {"name": "Stella Artois", "price": 5.3}
+    ]
+  },
+  {
+    "id": 5,
+    "name": "John Snow College Bar / The Igloo",
+    "average_pint_price": 0,
+    "location": "The Hill",
+    "opening_hours": "10:00 AM - 11:30 PM",
+    "description": "A vibrant pub with a riverside view, perfect for sunny afternoons.",
+    "lat": 54.76241051635582, 
+    "lng": -1.5850068715736967,
+    "on_tap": [
+      {"name": "Peroni", "price": 5.5},
+      {"name": "Stella Artois", "price": 5.3}
+    ]
+  },
+  {
+    "id": 6,
+    "name": "St Aidan's College Bar",
+    "average_pint_price": 0,
+    "location": "The Hill",
+    "opening_hours": "10:00 AM - 11:30 PM",
+    "description": "A vibrant pub with a riverside view, perfect for sunny afternoons.",
+    "lat":  54.76517803458084, 
+    "lng": -1.584228543113528,
+    "on_tap": [
+      {"name": "Peroni", "price": 5.5},
+      {"name": "Stella Artois", "price": 5.3}
+    ]
+  },
+  {
+    "id": 7,
+    "name": "St Chad's College Bar",
+    "average_pint_price": 0,
     "location": "The Bailey",
     "opening_hours": "12:00 PM - 10:30 PM",
     "description": "A cozy pub offering hearty meals and a welcoming atmosphere.",
@@ -57,23 +98,9 @@
     ]
   },
   {
-    "id": 5,
-    "name": "St Johns",
-    "average_pint_price": 4.7,
-    "location": "The Bailey",
-    "opening_hours": "11:00 AM - 11:00 PM",
-    "description": "A nautical-themed pub with a focus on fresh seafood and craft beers.",
-    "lat": 54.771848739043286,
-    "lng": -1.5756068594559856,
-    "on_tap": [
-      {"name": "Corona", "price": 5.0},
-      {"name": "Budweiser", "price": 4.9}
-    ]
-  },
-  {
-    "id": 6,
-    "name": "St Cuthberts",
-    "average_pint_price": 4.7,
+    "id": 8,
+    "name": "St Cuthbert's Society Bar",
+    "average_pint_price": 0,
     "location": "The Bailey",
     "opening_hours": "11:00 AM - 11:00 PM",
     "description": "A charming pub with a rustic interior and a great selection of ales.",
@@ -85,9 +112,37 @@
     ]
   },
   {
-    "id": 7,
-    "name": "St Marys",
-    "average_pint_price": 4.7,
+    "id": 9,
+    "name": "St Hild and St Bede College Bar / The Vern",
+    "average_pint_price": 0,
+    "location": "The Viaduct",
+    "opening_hours": "12:00 PM - 11:00 PM",
+    "description": "A popular student hangout with a relaxed atmosphere and affordable drinks.",
+    "lat": 54.77857467583371,
+    "lng": -1.585223859007222,
+    "on_tap": [
+      {"name": "Strongbow", "price": 5},
+      {"name": "Guinness", "price": 5.5}
+    ]
+  },
+  {
+    "id": 10,
+    "name": "St John's College Bar",
+    "average_pint_price": 0,
+    "location": "The Bailey",
+    "opening_hours": "11:00 AM - 11:00 PM",
+    "description": "A nautical-themed pub with a focus on fresh seafood and craft beers.",
+    "lat": 54.771848739043286,
+    "lng": -1.5756068594559856,
+    "on_tap": [
+      {"name": "Corona", "price": 5.0},
+      {"name": "Budweiser", "price": 4.9}
+    ]
+  },
+  {
+    "id": 11,
+    "name": "St Mary's College Bar",
+    "average_pint_price": 0,
     "location": "The Hill",
     "opening_hours": "11:00 AM - 11:00 PM",
     "description": "A lively pub with regular quiz nights and live music events.",
@@ -99,37 +154,37 @@
     ]
   },
   {
-    "id": 8,
-    "name": "Greys",
-    "average_pint_price": 4.7,
+    "id": 12,
+    "name": "South College Bar",
+    "average_pint_price": 0,
     "location": "The Hill",
-    "opening_hours": "11:00 AM - 11:00 PM",
-    "description": "A modern pub with a wide range of craft beers and cocktails.",
-    "lat": 54.764809855032034,
-    "lng": -1.5754408714745514,
+    "opening_hours": "12:00 PM - 11:00 PM",
+    "description": "A popular student hangout with a relaxed atmosphere and affordable drinks.",
+    "lat": 54.761956754816744,
+    "lng":  -1.5824404746500431,
     "on_tap": [
-      {"name": "Corona", "price": 5.0},
-      {"name": "Budweiser", "price": 4.9}
+      {"name": "Strongbow", "price": 5},
+      {"name": "Guinness", "price": 5.5}
     ]
   },
   {
-    "id": 9,
-    "name": "Collingwood",
-    "average_pint_price": 4.7,
+    "id": 13,
+    "name": "Stephenson College Bar / Stephenson Central",
+    "average_pint_price": 0,
     "location": "The Hill",
-    "opening_hours": "11:00 AM - 11:00 PM",
-    "description": "A family-friendly pub with a spacious beer garden.",
-    "lat": 54.76275673931081,
-    "lng": -1.5771552366439878,
+    "opening_hours": "12:00 PM - 11:00 PM",
+    "description": "A popular student hangout with a relaxed atmosphere and affordable drinks.",
+    "lat": 54.75962686193775, 
+    "lng":  -1.5812604145875335,
     "on_tap": [
-      {"name": "Corona", "price": 5.0},
-      {"name": "Budweiser", "price": 4.9}
+      {"name": "Strongbow", "price": 5},
+      {"name": "Guinness", "price": 5.5}
     ]
   },
   {
-    "id": 10,
-    "name": "Trevs",
-    "average_pint_price": 4.7,
+    "id": 14,
+    "name": "Trevelyan College Bar",
+    "average_pint_price": 0,
     "location": "The Hill",
     "opening_hours": "11:00 AM - 11:00 PM",
     "description": "A student favorite with affordable drinks and a vibrant atmosphere.",
@@ -138,6 +193,36 @@
     "on_tap": [
       {"name": "Corona", "price": 5.0},
       {"name": "Budweiser", "price": 4.9}
+    ]
+  },
+  {
+    "id": 15,
+    "name": "University College Bar / Undercroft Bar",
+    "average_pint_price": 0,
+    "location": "The Bailey",
+    "opening_hours": "11:00 AM - 12:00 AM",
+    "description": "A historic pub located under the castle, known for its unique ambiance.",
+    "lat": 54.77566479065893,
+    "lng": -1.576782983049647,
+    "on_tap": [
+      {"name": "Carlsberg", "price": 4.8},
+      {"name": "Heineken", "price": 5.2},
+      {"name": "Strongbow", "price": 4.5}
+    ]
+  },
+  {
+    "id": 16,
+    "name": "Van Mildert College Bar",
+    "average_pint_price": 0,
+    "location": "The Hill",
+    "opening_hours": "11:00 AM - 12:00 AM",
+    "description": "A historic pub located under the castle, known for its unique ambiance.",
+    "lat": 54.7631867364105, 
+    "lng": -1.5810048715030023,
+    "on_tap": [
+      {"name": "Carlsberg", "price": 4.8},
+      {"name": "Heineken", "price": 5.2},
+      {"name": "Strongbow", "price": 4.5}
     ]
   }
 ]
