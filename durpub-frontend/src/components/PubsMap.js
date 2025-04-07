@@ -1,6 +1,6 @@
 // PubsMap.js
 import React, { useState, useEffect } from "react";
-import { MapContainer, TileLayer, Marker } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import polyline from "@mapbox/polyline";
@@ -81,7 +81,15 @@ function PubsMap({pubs, route}) {
               eventHandlers={{
                 click: () => handleMarkerClick(pub)
               }}
-            />
+            >
+              <Popup>
+                <h2>{pub.name}</h2>
+                <p>{pub.location}</p>
+                <p>{pub.description}</p>
+                <p><strong>Opening Hours: </strong>{pub.opening_hours}</p>
+                <p><strong>Average Pint Price: </strong>{pub.average_pint_price}</p>
+              </Popup>
+            </Marker>
           ))
         ) : (
           // Numbered route markers in order
@@ -97,7 +105,15 @@ function PubsMap({pubs, route}) {
                 eventHandlers={{
                   click: () => handleMarkerClick(pub)
                 }}
-              />
+              >
+                <Popup>
+                  <h2>{pub.name}</h2>
+                  <p>{pub.location}</p>
+                  <p>{pub.description}</p>
+                  <p><strong>Opening Hours: </strong>{pub.opening_hours}</p>
+                  <p><strong>Average Pint Price: </strong>{pub.average_pint_price}</p>
+              </Popup>
+              </Marker>
             );
           })
         )}
