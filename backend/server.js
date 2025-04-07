@@ -35,7 +35,7 @@ app.post("/api/pubs/route", async (req, res) => {
     const pubData = await pubResponse.json();
 
     // Spawns a new Python process to run the pathfinding algo
-    const python = spawn("python3", ["python/pathfindingAlgorithm/bruteForce.py"]);
+    const python = spawn("python", ["python/pathfindingAlgorithm/bruteForce.py"]);
     let output = "";
 
     // Listen for data from the Python script via stdout
