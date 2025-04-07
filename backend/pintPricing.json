@@ -1,0 +1,12 @@
+[
+    {
+        "id": 1,
+        "drink":"corona",
+        "price":3.5
+    },
+    {
+        "id": 1,
+        "drink":"corona",
+        "price":3.6
+    }
+]

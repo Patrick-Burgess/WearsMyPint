@@ -53,7 +53,7 @@ Users can customize the crawl based on their preferences, making it a highly per
 - Use **Prettier** or a similar code formatter to automatically format code before committing.
 
 ### **Variable and Function Naming**:
-- Use **camelCase** for variable and function names (e.g., `getBarDetails`, `totalPrice`).
+- Use **camelCase** for variable and function names and JSON data (e.g., `getBarDetails`, `totalPrice`).
 - Use **PascalCase** for React components (e.g., `BarCard`, `UserProfile`).
 - Use **UPPERCASE** for constants (e.g., `MAX_BARS`).
 

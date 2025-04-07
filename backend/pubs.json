@@ -2,16 +2,13 @@
   {
     "id": 1,
     "name": "Collingwood College Bar",
-    "average_pint_price": 0,
+    "averagePintPrice": 0,
     "location": "The Hill",
-    "opening_hours": "11:00 AM - 11:00 PM",
+    "openingHours": "11:00 AM - 11:00 PM",
     "description": "A family-friendly pub with a spacious beer garden.",
     "lat": 54.76275673931081,
     "lng": -1.5771552366439878,
-    "on_tap": [
-      {"name": "Corona", "price": 5.0},
-      {"name": "Budweiser", "price": 4.9}
-    ]
+    "onTap": ["corona", "budweiser", "This is a Test College bar"]
   },
   {
     "id": 2,
@@ -23,7 +20,7 @@
     "lat": 54.764809855032034,
     "lng": -1.5754408714745514,
     "on_tap": [
-      {"name": "Corona", "price": 5.0},
+      {"name": "corona", "price": 5.0},
       {"name": "Budweiser", "price": 4.9}
     ]
   },
@@ -107,7 +104,7 @@
     "lat": 54.77077438605246,
     "lng": -1.5775879640359844,
     "on_tap": [
-      {"name": "Corona", "price": 5.0},
+      {"name": "corona", "price": 5.0},
       {"name": "Budweiser", "price": 4.9}
     ]
   },
@@ -135,7 +132,7 @@
     "lat": 54.771848739043286,
     "lng": -1.5756068594559856,
     "on_tap": [
-      {"name": "Corona", "price": 5.0},
+      {"name": "corona", "price": 5.0},
       {"name": "Budweiser", "price": 4.9}
     ]
   },
@@ -149,7 +146,7 @@
     "lat": 54.76629478585301,
     "lng": -1.577757872650435,
     "on_tap": [
-      {"name": "Corona", "price": 5.0},
+      {"name": "corona", "price": 5.0},
       {"name": "Budweiser", "price": 4.9}
     ]
   },
@@ -191,7 +188,7 @@
     "lat": 54.76454253968807,
     "lng": -1.5796535554551212,
     "on_tap": [
-      {"name": "Corona", "price": 5.0},
+      {"name": "corona", "price": 5.0},
       {"name": "Budweiser", "price": 4.9}
     ]
   },
