@@ -6,7 +6,7 @@ import PubsMap from "./PubsMap";
 // This component modularises the fetch request to the backend API 
 // Acts as a parent component for components that need the pub data
 // such as PubRoutingForm
-function FetchPubs() {
+function FetchPubs({activeSection}) {
     const [pubs, setPubs] = useState([]);
     const [route, setRoute] = useState([]);
     // const [latlngs, setLatlngs] = useState([])
@@ -19,13 +19,9 @@ function FetchPubs() {
     }, []);
     return (
         <>
-        <PubsMap pubs={pubs} route={route}/>
-        <br />
-        <br />
-        <PubsList pubs={pubs} />
-        <br />
-        <br />
-        <PubRoutingForm pubs={pubs} route={route} setRoute={setRoute}/>
+            {activeSection === 'pubMap' && <PubsMap pubs={pubs} route={route} />}
+            {activeSection === 'allPubs' && <PubsList pubs={pubs} />}
+            {activeSection === 'barCrawls' && <PubRoutingForm pubs={pubs} route={route} setRoute={setRoute} />}
         </>
     )
 }
