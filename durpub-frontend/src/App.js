@@ -3,11 +3,12 @@ import React from "react";
 import PubsList from "./components/pubslist.js";
 import PubsMap from "./components/PubsMap";
 import FetchPubs from "./components/fetchPubs.js";
+import PubNavbar from "./components/pubNavbar.js";
 
 function App() {
   return (
     <div>
-      <h1 className="text-center mt-4 mb-5"style={{ fontFamily: "'Crimson Pro', serif" }}>WearsMyPint</h1>
+      <PubNavbar />
       <FetchPubs />
     </div>
     
