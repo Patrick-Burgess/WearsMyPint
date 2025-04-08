@@ -8,7 +8,7 @@
     "description": "A family-friendly pub with a spacious beer garden.",
     "lat": 54.76275673931081,
     "lng": -1.5771552366439878,
-    "onTap": ["corona", "budweiser", "This is a Test College bar"]
+    "onTap": ["Drinks to be filled out"]
   },
   {
     "id": 2,
@@ -19,10 +19,7 @@
     "description": "A modern pub with a wide range of craft beers and cocktails.",
     "lat": 54.764809855032034,
     "lng": -1.5754408714745514,
-    "on_tap": [
-      {"name": "corona", "price": 5.0},
-      {"name": "Budweiser", "price": 4.9}
-    ]
+    "onTap": ["Drinks to be filled out"]
   },
   {
     "id": 3,
@@ -33,10 +30,7 @@
     "description": "A vibrant pub with a riverside view, perfect for sunny afternoons.",
     "lat": 54.774764413264826,
     "lng": -1.5744648843028721,
-    "on_tap": [
-      {"name": "Peroni", "price": 5.5},
-      {"name": "Stella Artois", "price": 5.3}
-    ]
+    "onTap": ["Drinks to be filled out"]
   },
   {
     "id": 4,
@@ -47,10 +41,7 @@
     "description": "A vibrant pub with a riverside view, perfect for sunny afternoons.",
     "lat": 54.75976588780357,
     "lng": -1.5797947495180495,
-    "on_tap": [
-      {"name": "Peroni", "price": 5.5},
-      {"name": "Stella Artois", "price": 5.3}
-    ]
+    "onTap": ["Drinks to be filled out"]
   },
   {
     "id": 5,
@@ -61,10 +52,7 @@
     "description": "A vibrant pub with a riverside view, perfect for sunny afternoons.",
     "lat": 54.76241051635582, 
     "lng": -1.5850068715736967,
-    "on_tap": [
-      {"name": "Peroni", "price": 5.5},
-      {"name": "Stella Artois", "price": 5.3}
-    ]
+    "onTap": ["Drinks to be filled out"]
   },
   {
     "id": 6,
@@ -75,10 +63,7 @@
     "description": "A vibrant pub with a riverside view, perfect for sunny afternoons.",
     "lat":  54.76517803458084, 
     "lng": -1.584228543113528,
-    "on_tap": [
-      {"name": "Peroni", "price": 5.5},
-      {"name": "Stella Artois", "price": 5.3}
-    ]
+    "onTap": ["Drinks to be filled out"]
   },
   {
     "id": 7,
@@ -89,10 +74,7 @@
     "description": "A cozy pub offering hearty meals and a welcoming atmosphere.",
     "lat": 54.773207746103004,
     "lng": -1.5746454202627849,
-    "on_tap": [
-      {"name": "John Smith's", "price": 4.5},
-      {"name": "Strongbow", "price": 4.8}
-    ]
+    "onTap": ["Drinks to be filled out"]
   },
   {
     "id": 8,
@@ -103,10 +85,7 @@
     "description": "A charming pub with a rustic interior and a great selection of ales.",
     "lat": 54.77077438605246,
     "lng": -1.5775879640359844,
-    "on_tap": [
-      {"name": "corona", "price": 5.0},
-      {"name": "Budweiser", "price": 4.9}
-    ]
+    "onTap": ["Appleshed", "Appleshed Dark Fruits", "Green Tiger", "Birra Murano", ""]
   },
   {
     "id": 9,
@@ -117,10 +96,7 @@
     "description": "A popular student hangout with a relaxed atmosphere and affordable drinks.",
     "lat": 54.77857467583371,
     "lng": -1.585223859007222,
-    "on_tap": [
-      {"name": "Strongbow", "price": 5},
-      {"name": "Guinness", "price": 5.5}
-    ]
+   "onTap": ["Drinks to be filled out"]
   },
   {
     "id": 10,
@@ -131,10 +107,7 @@
     "description": "A nautical-themed pub with a focus on fresh seafood and craft beers.",
     "lat": 54.771848739043286,
     "lng": -1.5756068594559856,
-    "on_tap": [
-      {"name": "corona", "price": 5.0},
-      {"name": "Budweiser", "price": 4.9}
-    ]
+    "onTap": ["Drinks to be filled out"]
   },
   {
     "id": 11,
@@ -145,10 +118,7 @@
     "description": "A lively pub with regular quiz nights and live music events.",
     "lat": 54.76629478585301,
     "lng": -1.577757872650435,
-    "on_tap": [
-      {"name": "corona", "price": 5.0},
-      {"name": "Budweiser", "price": 4.9}
-    ]
+    "onTap": ["Drinks to be filled out"]
   },
   {
     "id": 12,
@@ -159,10 +129,7 @@
     "description": "A popular student hangout with a relaxed atmosphere and affordable drinks.",
     "lat": 54.761956754816744,
     "lng":  -1.5824404746500431,
-    "on_tap": [
-      {"name": "Strongbow", "price": 5},
-      {"name": "Guinness", "price": 5.5}
-    ]
+    "onTap": ["Drinks to be filled out"]
   },
   {
     "id": 13,
@@ -173,10 +140,7 @@
     "description": "A popular student hangout with a relaxed atmosphere and affordable drinks.",
     "lat": 54.75962686193775, 
     "lng":  -1.5812604145875335,
-    "on_tap": [
-      {"name": "Strongbow", "price": 5},
-      {"name": "Guinness", "price": 5.5}
-    ]
+    "onTap": ["Drinks to be filled out"]
   },
   {
     "id": 14,
@@ -187,10 +151,7 @@
     "description": "A student favorite with affordable drinks and a vibrant atmosphere.",
     "lat": 54.76454253968807,
     "lng": -1.5796535554551212,
-    "on_tap": [
-      {"name": "corona", "price": 5.0},
-      {"name": "Budweiser", "price": 4.9}
-    ]
+    "onTap": ["Drinks to be filled out"]
   },
   {
     "id": 15,
@@ -201,11 +162,7 @@
     "description": "A historic pub located under the castle, known for its unique ambiance.",
     "lat": 54.77566479065893,
     "lng": -1.576782983049647,
-    "on_tap": [
-      {"name": "Carlsberg", "price": 4.8},
-      {"name": "Heineken", "price": 5.2},
-      {"name": "Strongbow", "price": 4.5}
-    ]
+    "onTap": ["Drinks to be filled out"]
   },
   {
     "id": 16,
@@ -216,10 +173,6 @@
     "description": "A historic pub located under the castle, known for its unique ambiance.",
     "lat": 54.7631867364105, 
     "lng": -1.5810048715030023,
-    "on_tap": [
-      {"name": "Carlsberg", "price": 4.8},
-      {"name": "Heineken", "price": 5.2},
-      {"name": "Strongbow", "price": 4.5}
-    ]
+    "onTap": ["Drinks to be filled out"]
   }
 ]
