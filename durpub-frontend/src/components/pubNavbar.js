@@ -23,6 +23,9 @@ function PubNavbar({setActiveSection}) {
                 <li className="nav-item mx-2">
                     <a className="nav-link nav-link-custom" href="#barCrawls" style={{ fontFamily: "'Crimson Pro', serif", fontSize: "1.75rem", color: "#000000" }} onClick={() => handleNavClick('barCrawls')}>Bar Crawls</a>
                 </li>
+                <li className="nav-item mx-2">
+                    <a className="nav-link nav-link-custom" href="#pintPricing" style={{ fontFamily: "'Crimson Pro', serif", fontSize: "1.75rem", color: "#000000" }} onClick={() => handleNavClick('pintPricing')}>Pint Pricing</a>
+                </li>
                 </ul>
             </div>
             </div>
