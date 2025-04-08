@@ -25,15 +25,9 @@ function createNumberedIcon(number) {
 }
 
 function PubsMap({pubs, route}) {
-  const [selectedPub, setSelectedPub] = useState(null);
 
   // called decodedRoute because ors api sends back some cryptic ass string of info
   const [decodedRoute, setDecodedRoute] = useState([])
-
-  // This function is called when a marker is clicked
-  const handleMarkerClick = (pub) => {
-    setSelectedPub(pub);
-  };
 
   // Center the map around Durham (approx lat/lng)
   const durhamCenter = [54.767999999999999, -1.5774328241809128];
@@ -78,9 +72,6 @@ function PubsMap({pubs, route}) {
               key={pub.id}
               position={[pub.lat, pub.lng]}
               icon={customMarkerIcon}
-              eventHandlers={{
-                click: () => handleMarkerClick(pub)
-              }}
             >
               <Popup>
                 <h2>{pub.name}</h2>
@@ -102,9 +93,6 @@ function PubsMap({pubs, route}) {
                 key={pub.id}
                 position={[pub.lat, pub.lng]}
                 icon={createNumberedIcon(index + 1)}
-                eventHandlers={{
-                  click: () => handleMarkerClick(pub)
-                }}
               >
                 <Popup>
                   <h2>{pub.name}</h2>
@@ -122,21 +110,6 @@ function PubsMap({pubs, route}) {
             <Polyline positions={decodedRoute} pathOptions={{ color: "red" }} />
           )}
         </MapContainer>
-      </div>
-
-      {/* Right Column - Info */}
-      <div style={{ width: "400px", padding: "1rem", borderLeft: "1px solid #ccc", wordWrap: "break-word" }}>
-        {selectedPub ? (
-          <>
-            <h2>{selectedPub.name}</h2>
-            <p>{selectedPub.location}</p>
-            <p>{selectedPub.description}</p>
-            <p><strong>Opening Hours: </strong>{selectedPub.opening_hours}</p>
-            <p><strong>Average Pint Price: </strong>{selectedPub.average_pint_price}</p>
-          </>
-        ) : (
-          <p>Click a pub marker to see details here.</p>
-        )}
       </div>
     </div>
   );
