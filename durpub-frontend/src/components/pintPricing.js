@@ -1,17 +1,33 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 function PintPricing({ pubs }) {
   const [selectedPubID, setSelectedPubID] = useState("");
+  const [selectedDrink, setSelectedDrink] = useState("");
+  const [availableDrinks, setAvailableDrinks] = useState([]);
+
+  // Update drinks list when pub changes
+  useEffect(() => {
+    const pub = pubs.find((p) => p.id === parseInt(selectedPubID));
+
+    if (pub && Array.isArray(pub.onTap)) {
+      setAvailableDrinks(pub.onTap);
+      setSelectedDrink(""); // Reset drink on pub change
+    } else {
+      setAvailableDrinks([]);
+    }
+  }, [selectedPubID, pubs]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const selectedPub = pubs.find((pub) => pub.id === parseInt(selectedPubID));
-    console.log("Selected pub:", selectedPub);
-    // Further logic here – e.g., show drink prices or edit form
+
+    const pub = pubs.find((p) => p.id === parseInt(selectedPubID));
+    console.log("Selected pub:", pub?.name);
+    console.log("Selected drink:", selectedDrink);
   };
 
   return (
-    <form onSubmit={handleSubmit} className="mb-4 container mt-4">
+    <form onSubmit={handleSubmit} className="container mt-4 mb-4">
+      {/* Pub Dropdown */}
       <div className="mb-3">
         <label htmlFor="pubSelect" className="form-label">Select Pub:</label>
         <select
@@ -30,7 +46,28 @@ function PintPricing({ pubs }) {
         </select>
       </div>
 
-      <button className="btn btn-success" type="submit">
+      {/* Drink Dropdown */}
+      {availableDrinks.length > 0 && (
+        <div className="mb-3">
+          <label htmlFor="drinkSelect" className="form-label">Select Drink:</label>
+          <select
+            id="drinkSelect"
+            className="form-select"
+            value={selectedDrink}
+            onChange={(e) => setSelectedDrink(e.target.value)}
+            required
+          >
+            <option value="" disabled>Select a drink</option>
+            {availableDrinks.map((drink, index) => (
+              <option key={index} value={drink}>
+                {drink}
+              </option>
+            ))}
+          </select>
+        </div>
+      )}
+
+      <button className="btn btn-success" type="submit" disabled={!selectedDrink}>
         Submit
       </button>
     </form>
