@@ -1,12 +1,27 @@
 [
-    {
-        "id": 1,
-        "drink":"corona",
-        "price":3.5
-    },
-    {
-        "id": 1,
-        "drink":"corona",
-        "price":3.6
-    }
+  {
+    "id": 1,
+    "drink": "corona",
+    "price": 3.5
+  },
+  {
+    "id": 1,
+    "drink": "corona",
+    "price": 3.6
+  },
+  {
+    "id": 8,
+    "drink": "Birra Murano",
+    "price": 3.5
+  },
+  {
+    "id": 8,
+    "drink": "Appleshed Dark Fruits",
+    "price": 2.5
+  },
+  {
+    "id": 8,
+    "drink": "Green Tiger",
+    "price": 2.6
+  }
 ]

@@ -20,7 +20,7 @@ function PintPricing({ pubs }) {
     }
   }, [selectedPubID, pubs]);
   //The form is submitted
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     //logging output
     const pub = pubs.find((p) => p.id === parseInt(selectedPubID));
@@ -28,7 +28,28 @@ function PintPricing({ pubs }) {
     console.log("Selected PubID:", selectedPubID)
     console.log("Selected drink:", selectedDrink);
     console.log("Entered price:", price);
-
+    let submitedPintInfo = {
+      id:parseInt(selectedPubID),
+      drink:selectedDrink,
+      price:parseFloat(price)
+    }
+    //API POST REQUEST
+    try {
+      const response = await fetch ('http://localhost:3001/api/pint',{
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body:JSON.stringify(submitedPintInfo)
+      })
+      if (!response.ok){
+        throw new Error(`Server responded with status ${response.status}`);
+      }
+      const result = await response.json();
+      console.log("Submitted Drink Pricing: ",result);
+    } catch  (error) {
+      console.error(`Error Posting submittedDrinkInfo`, error)
+    }
 
   };
 

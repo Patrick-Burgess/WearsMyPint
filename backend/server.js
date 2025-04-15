@@ -1,8 +1,10 @@
 // server.js
+
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const { spawn } = require("child_process");
+const fs = require("fs");
 const app = express();
 
 
@@ -130,6 +132,29 @@ app.post("/api/pubs/walking-route", async (req, res) => {
   }
 
 });
+
+//Post End Point for submiting drink pricing.
+app.post('/api/pint', (req,resp) => {
+  try {
+    const {id, drink, price }  = req.body;
+    console.log("ServerSide Pub ID: ",id)
+    console.log("ServerSide Drink Name: ",drink)
+    console.log("ServerSide Price: ",price)
+    const JSONfile = JSON.parse(fs.readFileSync('./pintPricing.json', 'utf8'));
+    //Create new variable to be appeneded to the JSON file
+    const newEntry = {
+      id: parseInt(id),
+      drink: drink,
+      price: parseFloat(price)
+    }
+    JSONfile.push(newEntry);
+    //Rewrites the JSON file
+    fs.writeFileSync('./pintPricing.json', JSON.stringify(JSONfile, null, 2), 'utf8');
+    resp.status(201).send({ message: 'Drink price has been added to pintPricing.json',newEntry})
+  } catch (error){resp.status(500).send({error: error.message})}
+});
+
+
 
 // Start the server
 const PORT = 3001; // or any port you prefer

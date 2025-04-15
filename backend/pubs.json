@@ -8,7 +8,9 @@
     "description": "A family-friendly pub with a spacious beer garden.",
     "lat": 54.76275673931081,
     "lng": -1.5771552366439878,
-    "onTap": ["Drinks to be filled out"]
+    "onTap": [
+      "Drinks to be filled out"
+    ]
   },
   {
     "id": 2,
@@ -19,7 +21,9 @@
     "description": "A modern pub with a wide range of craft beers and cocktails.",
     "lat": 54.764809855032034,
     "lng": -1.5754408714745514,
-    "onTap": ["Drinks to be filled out"]
+    "onTap": [
+      "Drinks to be filled out"
+    ]
   },
   {
     "id": 3,
@@ -30,7 +34,9 @@
     "description": "A vibrant pub with a riverside view, perfect for sunny afternoons.",
     "lat": 54.774764413264826,
     "lng": -1.5744648843028721,
-    "onTap": ["Drinks to be filled out"]
+    "onTap": [
+      "Drinks to be filled out"
+    ]
   },
   {
     "id": 4,
@@ -41,7 +47,9 @@
     "description": "A vibrant pub with a riverside view, perfect for sunny afternoons.",
     "lat": 54.75976588780357,
     "lng": -1.5797947495180495,
-    "onTap": ["Drinks to be filled out"]
+    "onTap": [
+      "Drinks to be filled out"
+    ]
   },
   {
     "id": 5,
@@ -50,9 +58,11 @@
     "location": "The Hill",
     "opening_hours": "10:00 AM - 11:30 PM",
     "description": "A vibrant pub with a riverside view, perfect for sunny afternoons.",
-    "lat": 54.76241051635582, 
+    "lat": 54.76241051635582,
     "lng": -1.5850068715736967,
-    "onTap": ["Drinks to be filled out"]
+    "onTap": [
+      "Drinks to be filled out"
+    ]
   },
   {
     "id": 6,
@@ -61,9 +71,11 @@
     "location": "The Hill",
     "opening_hours": "10:00 AM - 11:30 PM",
     "description": "A vibrant pub with a riverside view, perfect for sunny afternoons.",
-    "lat":  54.76517803458084, 
+    "lat": 54.76517803458084,
     "lng": -1.584228543113528,
-    "onTap": ["Drinks to be filled out"]
+    "onTap": [
+      "Drinks to be filled out"
+    ]
   },
   {
     "id": 7,
@@ -74,7 +86,9 @@
     "description": "A cozy pub offering hearty meals and a welcoming atmosphere.",
     "lat": 54.773207746103004,
     "lng": -1.5746454202627849,
-    "onTap": ["Drinks to be filled out"]
+    "onTap": [
+      "Drinks to be filled out"
+    ]
   },
   {
     "id": 8,
@@ -85,7 +99,13 @@
     "description": "A charming pub with a rustic interior and a great selection of ales.",
     "lat": 54.77077438605246,
     "lng": -1.5775879640359844,
-    "onTap": ["Appleshed", "Appleshed Dark Fruits", "Green Tiger", "Birra Murano", ""]
+    "onTap": [
+      "Appleshed",
+      "Appleshed Dark Fruits",
+      "Green Tiger",
+      "Birra Murano",
+      ""
+    ]
   },
   {
     "id": 9,
@@ -96,7 +116,9 @@
     "description": "A popular student hangout with a relaxed atmosphere and affordable drinks.",
     "lat": 54.77857467583371,
     "lng": -1.585223859007222,
-   "onTap": ["Drinks to be filled out"]
+    "onTap": [
+      "Drinks to be filled out"
+    ]
   },
   {
     "id": 10,
@@ -107,7 +129,9 @@
     "description": "A nautical-themed pub with a focus on fresh seafood and craft beers.",
     "lat": 54.771848739043286,
     "lng": -1.5756068594559856,
-    "onTap": ["Drinks to be filled out"]
+    "onTap": [
+      "Drinks to be filled out"
+    ]
   },
   {
     "id": 11,
@@ -118,7 +142,9 @@
     "description": "A lively pub with regular quiz nights and live music events.",
     "lat": 54.76629478585301,
     "lng": -1.577757872650435,
-    "onTap": ["Drinks to be filled out"]
+    "onTap": [
+      "Drinks to be filled out"
+    ]
   },
   {
     "id": 12,
@@ -128,8 +154,10 @@
     "opening_hours": "12:00 PM - 11:00 PM",
     "description": "A popular student hangout with a relaxed atmosphere and affordable drinks.",
     "lat": 54.761956754816744,
-    "lng":  -1.5824404746500431,
-    "onTap": ["Drinks to be filled out"]
+    "lng": -1.5824404746500431,
+    "onTap": [
+      "Drinks to be filled out"
+    ]
   },
   {
     "id": 13,
@@ -138,9 +166,11 @@
     "location": "The Hill",
     "opening_hours": "12:00 PM - 11:00 PM",
     "description": "A popular student hangout with a relaxed atmosphere and affordable drinks.",
-    "lat": 54.75962686193775, 
-    "lng":  -1.5812604145875335,
-    "onTap": ["Drinks to be filled out"]
+    "lat": 54.75962686193775,
+    "lng": -1.5812604145875335,
+    "onTap": [
+      "Drinks to be filled out"
+    ]
   },
   {
     "id": 14,
@@ -151,7 +181,9 @@
     "description": "A student favorite with affordable drinks and a vibrant atmosphere.",
     "lat": 54.76454253968807,
     "lng": -1.5796535554551212,
-    "onTap": ["Drinks to be filled out"]
+    "onTap": [
+      "Drinks to be filled out"
+    ]
   },
   {
     "id": 15,
@@ -162,7 +194,9 @@
     "description": "A historic pub located under the castle, known for its unique ambiance.",
     "lat": 54.77566479065893,
     "lng": -1.576782983049647,
-    "onTap": ["Drinks to be filled out"]
+    "onTap": [
+      "Drinks to be filled out"
+    ]
   },
   {
     "id": 16,
@@ -171,8 +205,10 @@
     "location": "The Hill",
     "opening_hours": "11:00 AM - 12:00 AM",
     "description": "A historic pub located under the castle, known for its unique ambiance.",
-    "lat": 54.7631867364105, 
+    "lat": 54.7631867364105,
     "lng": -1.5810048715030023,
-    "onTap": ["Drinks to be filled out"]
+    "onTap": [
+      "Drinks to be filled out"
+    ]
   }
 ]
