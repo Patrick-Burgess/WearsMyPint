@@ -15,7 +15,7 @@ app.use(express.json());
 
 // Load the pubs JSON data
 const pubs = require("./pubs.json");
-
+const pints = require("./pintPricing.json")
 // Define an endpoint to get pubs
 app.get("/api/pubs", (req, res) => {
   res.json(pubs);
@@ -152,6 +152,10 @@ app.post('/api/pint', (req,resp) => {
     fs.writeFileSync('./pintPricing.json', JSON.stringify(JSONfile, null, 2), 'utf8');
     resp.status(201).send({ message: 'Drink price has been added to pintPricing.json',newEntry})
   } catch (error){resp.status(500).send({error: error.message})}
+});
+
+app.get('/api/pint', (req,resp) => {
+  resp.json(pints)
 });
 
 

@@ -1,5 +1,28 @@
 // PubsList.js
+import { useEffect, useState} from "react";
 function PubsList({pubs}) {
+  
+  const[pintData, setPintData] = useState([])
+  
+  useEffect(() => {
+    (async function(){
+      try {
+        const response = await fetch("http://localhost:3001/api/pint")
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`)
+        }
+        console.log(response)
+      } catch(error){
+        console.log("Fetch error", error)
+      }
+    })();
+
+  }, []);
+  const getPintsForPub = (pubId) => {
+    return pintData.filter
+  }
+  
+  
   return (
     <div className="container mt-4">
       <h2 className="mb-4">All Pubs</h2>
@@ -22,6 +45,9 @@ function PubsList({pubs}) {
                 </p>
                 <p className="card-text">
                   <strong>Average Pint Price:</strong> £{pub.average_pint_price}
+                </p>
+                <p>
+                  
                 </p>
                 {/* Example button or link if you have more details */}
                 <button className="btn btn-primary mt-auto">View Details</button>
