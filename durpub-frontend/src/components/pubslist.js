@@ -11,18 +11,59 @@ function PubsList({pubs}) {
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`)
         }
+        const data = await response.json();
+        setPintData(data);
         console.log(response)
       } catch(error){
         console.log("Fetch error", error)
       }
     })();
-
   }, []);
-  const getPintsForPub = (pubId) => {
-    return pintData.filter
-  }
+  const getModePricePerDrinkPerPub = (pintData) => {
+    const result = {};
+  
+    for (const { id: pubId, drink, price } of pintData) {
+      if (!result[pubId]) result[pubId] = {};
+      if (!result[pubId][drink]) result[pubId][drink] = [];
+  
+      result[pubId][drink].push(price);
+    }
+  
+    //Now compute mode per drink per pub
+    const modePerPub = {};
+  
+    for (const pubId in result) {
+      modePerPub[pubId] = {};
+  
+      for (const drink in result[pubId]) {
+        const prices = result[pubId][drink];
+        const freq = {};
+  
+        for (const price of prices) {
+          freq[price] = (freq[price] || 0) + 1;
+        }
+  
+        let mode = null;
+        let maxCount = 0;
+  
+        for (const price in freq) {
+          if (freq[price] > maxCount) {
+            maxCount = freq[price];
+            mode = parseFloat(price);
+          }
+        }
+  
+        modePerPub[pubId][drink] = mode;
+      }
+    }
+  
+    return modePerPub;
+  };
   
   
+  
+  const modePrices = getModePricePerDrinkPerPub(pintData);
+
   return (
     <div className="container mt-4">
       <h2 className="mb-4">All Pubs</h2>
@@ -46,9 +87,20 @@ function PubsList({pubs}) {
                 <p className="card-text">
                   <strong>Average Pint Price:</strong> £{pub.average_pint_price}
                 </p>
-                <p>
-                  
-                </p>
+                {/*Pint Prices list using Get request */}
+                {modePrices[pub.id] && (
+                  <div className="mt-3">
+                    <h6>Mode price for pint</h6>
+                    <ul className="list-unstyled">
+                      {Object.entries(modePrices[pub.id]).map(([drink, price]) => (
+                        <li key={drink}>
+                          {drink}: £{price.toFixed(2)}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+                
                 {/* Example button or link if you have more details */}
                 <button className="btn btn-primary mt-auto">View Details</button>
               </div>
