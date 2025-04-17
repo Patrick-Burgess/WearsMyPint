@@ -3,7 +3,7 @@ import { useEffect, useState} from "react";
 function PubsList({pubs}) {
   
   const[pintData, setPintData] = useState([])
-  
+  //API GET request for information from pintPricing.json
   useEffect(() => {
     (async function(){
       try {
@@ -12,6 +12,7 @@ function PubsList({pubs}) {
           throw new Error(`HTTP error! status: ${response.status}`)
         }
         const data = await response.json();
+        //Sends JSON data out of this function
         setPintData(data);
         console.log(response)
       } catch(error){
@@ -19,9 +20,12 @@ function PubsList({pubs}) {
       }
     })();
   }, []);
+  
+  //Function to compute the mode of each pint at each differtnt pub
   const getModePricePerDrinkPerPub = (pintData) => {
     const result = {};
-  
+    
+    //Groups all prices by their respective pubId then thier name
     for (const { id: pubId, drink, price } of pintData) {
       if (!result[pubId]) result[pubId] = {};
       if (!result[pubId][drink]) result[pubId][drink] = [];
@@ -32,12 +36,15 @@ function PubsList({pubs}) {
     //Now compute mode per drink per pub
     const modePerPub = {};
   
+    //For loop for each pub
     for (const pubId in result) {
       modePerPub[pubId] = {};
-  
+      //For loop for each drink in each pub
       for (const drink in result[pubId]) {
+        //Calculates the Mode now
         const prices = result[pubId][drink];
-        const freq = {};
+        //Creates a frequency map
+        const freq = {}; 
   
         for (const price of prices) {
           freq[price] = (freq[price] || 0) + 1;
@@ -52,7 +59,7 @@ function PubsList({pubs}) {
             mode = parseFloat(price);
           }
         }
-  
+        //stores the mode price
         modePerPub[pubId][drink] = mode;
       }
     }
