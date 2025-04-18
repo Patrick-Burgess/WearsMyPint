@@ -19,6 +19,7 @@ function PintPricing({ pubs }) {
       setAvailableDrinks([]); //Doesn't show drinks if their isn't a pub/ontap drinks
     }
   }, [selectedPubID, pubs]);
+
   //The form is submitted
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -28,11 +29,14 @@ function PintPricing({ pubs }) {
     console.log("Selected PubID:", selectedPubID)
     console.log("Selected drink:", selectedDrink);
     console.log("Entered price:", price);
-    let submitedPintInfo = {
+    
+    //Creating the object to be sent to the API
+    let submittedPintInfo = {
       id:parseInt(selectedPubID),
       drink:selectedDrink,
       price:parseFloat(price)
     }
+
     //API POST REQUEST
     try {
       const response = await fetch ('http://localhost:3001/api/pint',{
@@ -40,13 +44,15 @@ function PintPricing({ pubs }) {
         headers: {
           'Content-Type': 'application/json'
         },
-        body:JSON.stringify(submitedPintInfo)
+        body:JSON.stringify(submittedPintInfo)
       })
       if (!response.ok){
-        throw new Error(`Server responded with status ${response.status}`);
+        alert("Price must be below £10.");
+        throw new Error(`Server responded with status ${response.status}. The price was too high.`);
       }
       const result = await response.json();
       console.log("Submitted Drink Pricing: ",result);
+      alert("Pint pricing submitted successfully!");
     } catch  (error) {
       console.error(`Error Posting submittedDrinkInfo`, error)
     }
@@ -96,7 +102,7 @@ function PintPricing({ pubs }) {
           </select>
         </div>
       )}
-      {/* Drink Dropdown */}
+      
       {selectedDrink && (
         <div className="mb-3">
           <label htmlFor="priceInput" className="form-label">Enter Pint Price (£):</label>

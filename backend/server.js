@@ -140,6 +140,11 @@ app.post('/api/pint', (req,resp) => {
     console.log("ServerSide Pub ID: ",id)
     console.log("ServerSide Drink Name: ",drink)
     console.log("ServerSide Price: ",price)
+
+    if (price > 10) {
+      return resp.status(400).send({ error: "Price must be below £10." });
+    }
+
     const JSONfile = JSON.parse(fs.readFileSync('./pintPricing.json', 'utf8'));
     //Create new variable to be appeneded to the JSON file
     const newEntry = {
@@ -148,10 +153,13 @@ app.post('/api/pint', (req,resp) => {
       price: parseFloat(price)
     }
     JSONfile.push(newEntry);
+    
     //Rewrites the JSON file
     fs.writeFileSync('./pintPricing.json', JSON.stringify(JSONfile, null, 2), 'utf8');
     resp.status(201).send({ message: 'Drink price has been added to pintPricing.json',newEntry})
-  } catch (error){resp.status(500).send({error: error.message})}
+  } catch (error) {
+    resp.status(500).send({error: error.message})
+  }
 });
 
 app.get('/api/pint', (req,resp) => {
