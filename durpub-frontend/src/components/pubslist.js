@@ -123,7 +123,15 @@ function PubsList({pubs}) {
                 )}
                 
                 {/* Example button or link if you have more details */}
-                <button className="btn btn-primary mt-auto">View on Map</button>
+                <button
+                  className="btn btn-primary mt-auto"
+                  onClick={() => {
+                    const pubId = pub.id; // Get the pub's ID
+                    window.location.href = `/pubsmap?pubId=${pubId}`; // Redirect to PubsMap with query string
+                  }}
+                >
+                  View on Map
+                </button>
               </div>
             </div>
           </div>
