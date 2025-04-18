@@ -3,6 +3,7 @@ import { useEffect, useState} from "react";
 function PubsList({pubs}) {
   
   const[pintData, setPintData] = useState([])
+
   //API GET request for information from pintPricing.json
   useEffect(() => {
     (async function(){
@@ -21,7 +22,7 @@ function PubsList({pubs}) {
     })();
   }, []);
   
-  //Function to compute the mode of each pint at each differtnt pub
+  //Function to compute the mode of each pint at each different pub
   const getModePricePerDrinkPerPub = (pintData) => {
     const result = {};
     
@@ -67,15 +68,28 @@ function PubsList({pubs}) {
     return modePerPub;
   };
   
-  
+  const updatePubsWithAveragePrice = (pubs, modePrices) => {
+    return pubs.map((pub) => {
+      const pubModePrices = modePrices[pub.id];
+      if (pubModePrices) {
+        const drinkPrices = Object.values(pubModePrices);
+        const totalPrice = drinkPrices.reduce((sum, price) => sum + price, 0);
+        const averagePrice = drinkPrices.length > 0 ? totalPrice / drinkPrices.length : 0;
+        return { ...pub, average_pint_price: averagePrice.toFixed(2) };
+      }
+      return { ...pub, average_pint_price: "N/A" }; // If no mode prices, set to "N/A"
+    });
+  };
   
   const modePrices = getModePricePerDrinkPerPub(pintData);
+  console.log("MODE PRICES: ", modePrices);
+  const updatedPubs = updatePubsWithAveragePrice(pubs, modePrices);
 
   return (
     <div className="container mt-4">
       <h2 className="mb-4">All Pubs</h2>
       <div className="row">
-        {pubs.map((pub) => (
+        {updatedPubs.map((pub) => (
           <div className="col-md-4 mb-4" key={pub.id}>
             <div className="card h-100">
               {/* If you have a pub image, you can do:
@@ -97,7 +111,7 @@ function PubsList({pubs}) {
                 {/*Pint Prices list using Get request */}
                 {modePrices[pub.id] && (
                   <div className="mt-3">
-                    <h6>Mode price for pint</h6>
+                    <h6>Pint Prices: </h6>
                     <ul className="list-unstyled">
                       {Object.entries(modePrices[pub.id]).map(([drink, price]) => (
                         <li key={drink}>
@@ -109,7 +123,7 @@ function PubsList({pubs}) {
                 )}
                 
                 {/* Example button or link if you have more details */}
-                <button className="btn btn-primary mt-auto">View Details</button>
+                <button className="btn btn-primary mt-auto">View on Map</button>
               </div>
             </div>
           </div>

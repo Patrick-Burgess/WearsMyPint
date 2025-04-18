@@ -133,5 +133,10 @@
     "id": 8,
     "drink": "Green Tiger",
     "price": 1000
+  },
+  {
+    "id": 8,
+    "drink": "Appleshed Dark Fruits",
+    "price": 3
   }
 ]
