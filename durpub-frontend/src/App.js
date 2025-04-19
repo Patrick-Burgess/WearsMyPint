@@ -5,11 +5,12 @@ import PubNavbar from "./components/pubNavbar.js";
 import PintPricing from "./components/pintPricing.js";
 function App() {
   const [activeSection, setActiveSection] = useState('pubMap')
+  const [viewPubID, setViewPubID] = useState("");
 
   return (
     <div>
       <PubNavbar setActiveSection={setActiveSection}/>
-      <FetchPubs activeSection={activeSection}/>
+      <FetchPubs viewPubID={viewPubID} setViewPubID={setViewPubID} activeSection={activeSection} setActiveSection={setActiveSection}/>
     </div>
     
   );

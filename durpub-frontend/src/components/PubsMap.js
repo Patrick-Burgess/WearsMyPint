@@ -1,6 +1,6 @@
 // PubsMap.js
 import React, { useState, useEffect } from "react";
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import polyline from "@mapbox/polyline";
@@ -24,7 +24,7 @@ function createNumberedIcon(number) {
   });
 }
 
-function PubsMap({pubs, route}) {
+function PubsMap({viewPubID, setViewPubID, pubs, route}) {
 
   // called decodedRoute because ors api sends back some cryptic ass string of info
   const [decodedRoute, setDecodedRoute] = useState([])
@@ -50,7 +50,6 @@ function PubsMap({pubs, route}) {
       .catch((err) => console.error("Error getting route:", err));
   }, [route]); // updates when there is a route to display (i.e when route updates)
 
-
   return (
     <div style={{ display: "flex", height: "75vh" }}>
       {/* Left Column - Map */}
@@ -67,21 +66,31 @@ function PubsMap({pubs, route}) {
           />
           {route.length === 0 ? (
   // Classic markers for all pubs when no route is selected
-          pubs.map((pub) => (
-            <Marker
-              key={pub.id}
-              position={[pub.lat, pub.lng]}
-              icon={customMarkerIcon}
-            >
-              <Popup>
-                <h2>{pub.name}</h2>
-                <p>{pub.location}</p>
-                <p>{pub.description}</p>
-                <p><strong>Opening Hours: </strong>{pub.opening_hours}</p>
-                <p><strong>Average Pint Price: </strong>{pub.average_pint_price}</p>
-              </Popup>
-            </Marker>
-          ))
+          pubs.map((pub) => {
+            const handlers =
+              pub.id === viewPubID
+                ? {
+                    add: (e) => e.target.openPopup(),
+                    popupopen: () => setViewPubID(""),
+                  }
+                : {};
+
+            return (
+              <Marker
+                key={pub.id}
+                position={[pub.lat, pub.lng]}
+                icon={customMarkerIcon}
+                eventHandlers={handlers}
+              >
+                <Popup>
+                  <h2>{pub.name}</h2>
+                  <p>{pub.location}</p>
+                  <p>{pub.description}</p>
+                  <p><strong>Opening Hours: </strong>{pub.opening_hours}</p>
+                  <p><strong>Average Pint Price: </strong>{pub.average_pint_price}</p>
+                </Popup>
+              </Marker>
+            )})
         ) : (
           // Numbered route markers in order
           route.map((id, index) => {

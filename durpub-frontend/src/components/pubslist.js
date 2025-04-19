@@ -1,6 +1,6 @@
 // PubsList.js
 import { useEffect, useState} from "react";
-function PubsList({pubs}) {
+function PubsList({viewPubID, setViewPubID, activeSection, setActiveSection, pubs}) {
   
   const[pintData, setPintData] = useState([])
 
@@ -126,8 +126,8 @@ function PubsList({pubs}) {
                 <button
                   className="btn btn-primary mt-auto"
                   onClick={() => {
-                    const pubId = pub.id; // Get the pub's ID
-                    window.location.href = `/pubsmap?pubId=${pubId}`; // Redirect to PubsMap with query string
+                    setViewPubID(pub.id); // Get the pub's ID
+                    setActiveSection('pubMap')
                   }}
                 >
                   View on Map
