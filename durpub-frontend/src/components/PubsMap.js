@@ -32,6 +32,26 @@ function PubsMap({viewPubID, setViewPubID, pubs, route}) {
   // Center the map around Durham (approx lat/lng)
   const durhamCenter = [54.767999999999999, -1.5774328241809128];
 
+  const[pintData, setPintData] = useState([])
+
+  //API GET request for information from pintPricing.json
+  useEffect(() => {
+    (async function(){
+      try {
+        const response = await fetch("http://localhost:3001/api/pint")
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`)
+        }
+        const data = await response.json();
+        //Sends JSON data out of this function
+        setPintData(data);
+        console.log(response)
+      } catch(error){
+        console.log("Fetch error", error)
+      }
+    })();
+  }, []);
+
   useEffect(() => {
     if (route.length < 2) return; // Need at least start and end
 
@@ -50,6 +70,68 @@ function PubsMap({viewPubID, setViewPubID, pubs, route}) {
       .catch((err) => console.error("Error getting route:", err));
   }, [route]); // updates when there is a route to display (i.e when route updates)
 
+  //Function to compute the mode of each pint at each different pub
+  const getModePricePerDrinkPerPub = (pintData) => {
+    const result = {};
+    
+    //Groups all prices by their respective pubId then thier name
+    for (const { id: pubId, drink, price } of pintData) {
+      if (!result[pubId]) result[pubId] = {};
+      if (!result[pubId][drink]) result[pubId][drink] = [];
+  
+      result[pubId][drink].push(price);
+    }
+  
+    //Now compute mode per drink per pub
+    const modePerPub = {};
+  
+    //For loop for each pub
+    for (const pubId in result) {
+      modePerPub[pubId] = {};
+      //For loop for each drink in each pub
+      for (const drink in result[pubId]) {
+        //Calculates the Mode now
+        const prices = result[pubId][drink];
+        //Creates a frequency map
+        const freq = {}; 
+  
+        for (const price of prices) {
+          freq[price] = (freq[price] || 0) + 1;
+        }
+  
+        let mode = null;
+        let maxCount = 0;
+  
+        for (const price in freq) {
+          if (freq[price] > maxCount) {
+            maxCount = freq[price];
+            mode = parseFloat(price);
+          }
+        }
+        //stores the mode price
+        modePerPub[pubId][drink] = mode;
+      }
+    }
+  
+    return modePerPub;
+  };
+
+  const updatePubsWithAveragePrice = (pubs, modePrices) => {
+    return pubs.map((pub) => {
+      const pubModePrices = modePrices[pub.id];
+      if (pubModePrices) {
+        const drinkPrices = Object.values(pubModePrices);
+        const totalPrice = drinkPrices.reduce((sum, price) => sum + price, 0);
+        const averagePrice = drinkPrices.length > 0 ? totalPrice / drinkPrices.length : 0;
+        return { ...pub, average_pint_price: averagePrice.toFixed(2) };
+      }
+      return { ...pub, average_pint_price: "N/A" }; // If no mode prices, set to "N/A"
+    });
+  };
+
+  const modePrices = getModePricePerDrinkPerPub(pintData);
+  const updatedPubs = updatePubsWithAveragePrice(pubs, modePrices);
+
   return (
     <div style={{ display: "flex", height: "75vh" }}>
       {/* Left Column - Map */}
@@ -66,7 +148,7 @@ function PubsMap({viewPubID, setViewPubID, pubs, route}) {
           />
           {route.length === 0 ? (
   // Classic markers for all pubs when no route is selected
-          pubs.map((pub) => {
+          updatedPubs.map((pub) => {
             const handlers =
               pub.id === viewPubID
                 ? {
@@ -94,7 +176,7 @@ function PubsMap({viewPubID, setViewPubID, pubs, route}) {
         ) : (
           // Numbered route markers in order
           route.map((id, index) => {
-            const pub = pubs.find((p) => p.id === id);
+            const pub = updatedPubs.find((p) => p.id === id);
             if (!pub) return null;
 
             return (
