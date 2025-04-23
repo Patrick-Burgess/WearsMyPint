@@ -136,26 +136,31 @@ app.post("/api/pubs/walking-route", async (req, res) => {
 //Post End Point for submiting drink pricing.
 app.post('/api/pint', (req,resp) => {
   try {
+    //Create a variable for each part of the submitted request
     const {id, drink, price }  = req.body;
-    console.log("ServerSide Pub ID: ",id)
-    console.log("ServerSide Drink Name: ",drink)
-    console.log("ServerSide Price: ",price)
 
+    console.log("Server Recived Pub ID: ",id)
+    console.log("Server Recived Drink Name: ",drink)
+    console.log("Server Recived Price: ",price)
+
+    //Edge case to check if price data sent is correct
     if (price > 10) {
       return resp.status(400).send({ error: "Price must be below £10." });
     }
-
+    //create variable of the JSON file pintPricing.json
     const JSONfile = JSON.parse(fs.readFileSync('./pintPricing.json', 'utf8'));
-    //Create new variable to be appeneded to the JSON file
+    //Create new object to be appeneded to the JSON file
     const newEntry = {
       id: parseInt(id),
       drink: drink,
       price: parseFloat(price)
     }
+    //Add the object to the JSON file variable 
     JSONfile.push(newEntry);
     
-    //Rewrites the JSON file
+    //Rewrites the JSON file with the variable JSONfile
     fs.writeFileSync('./pintPricing.json', JSON.stringify(JSONfile, null, 2), 'utf8');
+    //Respond with a 201 code showing that it has been POSTED succesfully
     resp.status(201).send({ message: 'Drink price has been added to pintPricing.json',newEntry})
   } catch (error) {
     resp.status(500).send({error: error.message})
@@ -163,7 +168,14 @@ app.post('/api/pint', (req,resp) => {
 });
 
 app.get('/api/pint', (req,resp) => {
-  resp.json(pints)
+  try{
+    //Repond back with sucess code 200 and pintPricing.json
+    resp.status(200).json(pints)
+  }catch (error){
+    //Generic error
+    resp.status(500).send({error: error.message});
+  }
+
 });
 
 

@@ -102,7 +102,7 @@ function PintPricing({ pubs }) {
           </select>
         </div>
       )}
-      
+      {/* Pint Price */}
       {selectedDrink && (
         <div className="mb-3">
           <label htmlFor="priceInput" className="form-label">Enter Pint Price (£):</label>
