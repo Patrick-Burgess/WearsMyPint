@@ -153,5 +153,60 @@
     "id": 13,
     "drink": "Guiness",
     "price": 3.8
+  },
+  {
+    "id": 9,
+    "drink": "Appleshed",
+    "price": 4.2
+  },
+  {
+    "id": 10,
+    "drink": "Green Tiger",
+    "price": 4.5
+  },
+  {
+    "id": 11,
+    "drink": "Appleshed",
+    "price": 3.8
+  },
+  {
+    "id": 12,
+    "drink": "Birra Murano",
+    "price": 3.9
+  },
+  {
+    "id": 13,
+    "drink": "Appleshed",
+    "price": 3.7
+  },
+  {
+    "id": 14,
+    "drink": "Green Tiger",
+    "price": 3.6
+  },
+  {
+    "id": 15,
+    "drink": "Appleshed",
+    "price": 4
+  },
+  {
+    "id": 16,
+    "drink": "Birra Murano",
+    "price": 3.5
+  },
+  {
+    "id": 17,
+    "drink": "Appleshed",
+    "price": 4.1
+  },
+  {
+    "id": 18,
+    "drink": "Birra Murano",
+    "price": 3.4
+  },
+  {
+    "id": 16,
+    "drink": "Appleshed Dark Fruits",
+    "price": 10
   }
 ]

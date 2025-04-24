@@ -5,6 +5,7 @@ import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import polyline from "@mapbox/polyline";
 import { Polyline } from "react-leaflet"
+import { getModePricePerDrinkPerPub, updatePubsWithAveragePrice } from "./modeAndAverageCalculator.js";
 
 // Create a custom icon using your marker image
 const customMarkerIcon = L.icon({
@@ -32,6 +33,26 @@ function PubsMap({viewPubID, setViewPubID, pubs, route}) {
   // Center the map around Durham (approx lat/lng)
   const durhamCenter = [54.767999999999999, -1.5774328241809128];
 
+  const[pintData, setPintData] = useState([])
+
+  //API GET request for information from pintPricing.json
+  useEffect(() => {
+    (async function(){
+      try {
+        const response = await fetch("http://localhost:3001/api/pint")
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`)
+        }
+        const data = await response.json();
+        //Sends JSON data out of this function
+        setPintData(data);
+        console.log(response)
+      } catch(error){
+        console.log("Fetch error", error)
+      }
+    })();
+  }, []);
+
   useEffect(() => {
     if (route.length < 2) return; // Need at least start and end
 
@@ -50,6 +71,9 @@ function PubsMap({viewPubID, setViewPubID, pubs, route}) {
       .catch((err) => console.error("Error getting route:", err));
   }, [route]); // updates when there is a route to display (i.e when route updates)
 
+  const modePrices = getModePricePerDrinkPerPub(pintData);
+  const updatedPubs = updatePubsWithAveragePrice(pubs, modePrices);
+
   return (
     <div style={{ display: "flex", height: "75vh" }}>
       {/* Left Column - Map */}
@@ -66,7 +90,7 @@ function PubsMap({viewPubID, setViewPubID, pubs, route}) {
           />
           {route.length === 0 ? (
   // Classic markers for all pubs when no route is selected
-          pubs.map((pub) => {
+          updatedPubs.map((pub) => {
             const handlers =
               pub.id === viewPubID
                 ? {
@@ -94,7 +118,7 @@ function PubsMap({viewPubID, setViewPubID, pubs, route}) {
         ) : (
           // Numbered route markers in order
           route.map((id, index) => {
-            const pub = pubs.find((p) => p.id === id);
+            const pub = updatedPubs.find((p) => p.id === id);
             if (!pub) return null;
 
             return (
