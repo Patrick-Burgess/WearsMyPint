@@ -9,7 +9,7 @@
     "lat": 54.76275673931081,
     "lng": -1.5771552366439878,
     "onTap": [
-      "Drinks to be filled out"
+      "The Stag"
     ]
   },
   {
@@ -35,7 +35,7 @@
     "lat": 54.774764413264826,
     "lng": -1.5744648843028721,
     "onTap": [
-      "Drinks to be filled out"
+      "Stella Artios"
     ]
   },
   {
@@ -74,7 +74,7 @@
     "lat": 54.76517803458084,
     "lng": -1.584228543113528,
     "onTap": [
-      "Drinks to be filled out"
+      "Green Badger"
     ]
   },
   {
@@ -87,7 +87,11 @@
     "lat": 54.773207746103004,
     "lng": -1.5746454202627849,
     "onTap": [
-      "Drinks to be filled out"
+      "Camden Pale Ale",
+      "Camden Stout",
+      "Tiger",
+      "Red Stripe",
+      "Orchard Pig"
     ]
   },
   {
@@ -102,9 +106,12 @@
     "onTap": [
       "Appleshed",
       "Appleshed Dark Fruits",
-      "Green Tiger",
       "Birra Murano",
-      ""
+      "Bud Light",
+      "Camden Hells",
+      "Camden Stout",
+      "Green Tiger",
+      "Stella Artios"
     ]
   },
   {
@@ -169,7 +176,7 @@
     "lat": 54.75962686193775,
     "lng": -1.5812604145875335,
     "onTap": [
-      "Drinks to be filled out"
+      "Guiness"
     ]
   },
   {
