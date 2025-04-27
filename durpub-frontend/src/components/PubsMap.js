@@ -25,7 +25,7 @@ function createNumberedIcon(number) {
   });
 }
 
-function PubsMap({viewPubID, setViewPubID, pubs, route}) {
+function PubsMap({viewPubID, setViewPubID, pubs = [], route = []}) {
 
   // called decodedRoute because ors api sends back some cryptic ass string of info
   const [decodedRoute, setDecodedRoute] = useState([])

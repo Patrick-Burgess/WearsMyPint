@@ -55,7 +55,6 @@ app.post("/api/pubs/route", async (req, res) => {
     python.on("close", () => {
       try {
         const result = JSON.parse(output);
-        // IMPLEMENT LOGIC TO RETURN THE DATA TO THE FRONTEND HERE!
         console.log("Python output:", result);
         res.json(result); 
       } catch (err) {

@@ -26,7 +26,9 @@ function PubRoutingForm({ pubs, route, setRoute }) {
 
   // fullRoute just takes the ids and provides context to them 
   // e.g. matches the id to the pub.json data
-  const fullRoute = route.map((id) => pubs.find((pub) => pub.id === id));
+  const fullRoute = (route || []).map((id) =>
+    pubs.find((pub) => pub.id === id)
+  );
 
   return (
     <div>
