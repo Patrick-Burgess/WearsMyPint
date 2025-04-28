@@ -75,8 +75,7 @@ function PubsMap({viewPubID, setViewPubID, pubs = [], route = []}) {
   const updatedPubs = updatePubsWithAveragePrice(pubs, modePrices);
 
   return (
-    <div style={{ display: "flex", height: "75vh" }}>
-      {/* Left Column - Map */}
+    <div style={{ display: "flex", height: "75vh", backgroundColor: "#f8f9fa"}}>
       <div style={{ flex: 1 }}>
         <MapContainer
           center={durhamCenter}

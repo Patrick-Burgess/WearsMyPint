@@ -67,7 +67,7 @@ function PubsList({viewPubID, setViewPubID, activeSection, setActiveSection, pub
                 
                 {/* Example button or link if you have more details */}
                 <button
-                  className="btn btn-primary mt-auto"
+                  className="btn btn-success mt-auto"
                   onClick={() => {
                     setViewPubID(pub.id); // Get the pub's ID
                     setActiveSection('pubMap')

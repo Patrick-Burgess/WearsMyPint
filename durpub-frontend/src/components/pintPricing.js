@@ -60,60 +60,63 @@ function PintPricing({ pubs }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="container mt-4 mb-4">
-      
-      {/* Pub Dropdown */}
-      <div className="mb-3">
-        <label htmlFor="pubSelect" className="form-label">Select Pub:</label>
-        <select
-          id="pubSelect"
-          className="form-select"
-          value={selectedPubID}
-          onChange={(e) => setSelectedPubID(e.target.value)}
-          required
-        >
-          <option value="" disabled>Select a pub</option>
-          {pubs.map((pub) => (
-            <option key={pub.id} value={pub.id}>
-              {pub.name}
-            </option>
-          ))}
-        </select>
-      </div>
-
-      {/* Drink Dropdown */}
-      
-      {availableDrinks.length > 0 && (
+    <div className="container mt-4">
+      <h2 className="mb-4">Submit Pint Pricing</h2>
+      <form onSubmit={handleSubmit} className="container mt-4 mb-4">
+        
+        {/* Pub Dropdown */}
         <div className="mb-3">
-          <label htmlFor="drinkSelect" className="form-label">Select Drink:</label>
+          <label htmlFor="pubSelect" className="form-label">Select Pub:</label>
           <select
-            id="drinkSelect"
+            id="pubSelect"
             className="form-select"
-            value={selectedDrink}
-            onChange={(e) => setSelectedDrink(e.target.value)}
+            value={selectedPubID}
+            onChange={(e) => setSelectedPubID(e.target.value)}
             required
           >
-            <option value="" disabled>Select a drink</option>
-            {availableDrinks.map((drink, index) => (
-              <option key={index} value={drink}>
-                {drink}
+            <option value="" disabled>Select a pub</option>
+            {pubs.map((pub) => (
+              <option key={pub.id} value={pub.id}>
+                {pub.name}
               </option>
             ))}
           </select>
         </div>
-      )}
-      {/* Pint Price */}
-      {selectedDrink && (
-        <div className="mb-3">
-          <label htmlFor="priceInput" className="form-label">Enter Pint Price (£):</label>
-          <input type="number"step="0.01"min="0"className="form-control"id="priceInput"value={price}onChange={(e) => setPrice(e.target.value)}required/>
-        </div>
-      )}
 
-      <button className="btn btn-success" type="submit" disabled={!selectedDrink || !price}>
-        Submit
-      </button>
-    </form>
+        {/* Drink Dropdown */}
+        
+        {availableDrinks.length > 0 && (
+          <div className="mb-3">
+            <label htmlFor="drinkSelect" className="form-label">Select Drink:</label>
+            <select
+              id="drinkSelect"
+              className="form-select"
+              value={selectedDrink}
+              onChange={(e) => setSelectedDrink(e.target.value)}
+              required
+            >
+              <option value="" disabled>Select a drink</option>
+              {availableDrinks.map((drink, index) => (
+                <option key={index} value={drink}>
+                  {drink}
+                </option>
+              ))}
+            </select>
+          </div>
+        )}
+        {/* Pint Price */}
+        {selectedDrink && (
+          <div className="mb-3">
+            <label htmlFor="priceInput" className="form-label">Enter Pint Price (£):</label>
+            <input type="number"step="0.01"min="0"className="form-control"id="priceInput"value={price}onChange={(e) => setPrice(e.target.value)}required/>
+          </div>
+        )}
+
+        <button className="btn btn-success w-100" type="submit">
+          Submit
+        </button>
+      </form>
+    </div>
   );
 }
 

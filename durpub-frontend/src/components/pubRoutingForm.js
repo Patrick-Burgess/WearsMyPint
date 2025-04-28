@@ -21,7 +21,6 @@ function PubRoutingForm({ pubs, route, setRoute }) {
       .then((res) => res.json())
       .then((data) => setRoute(data.route))
       .catch((err) => console.error("Error getting route:", err));
-
   };
 
   // fullRoute just takes the ids and provides context to them 
@@ -31,62 +30,75 @@ function PubRoutingForm({ pubs, route, setRoute }) {
   );
 
   return (
-    <div>
-    <form onSubmit={handleSubmit} className="mb-4">
-      <div className="mb-3">
-        <label htmlFor="fromSelect" className="form-label">From:</label>
-        <select
-          id="fromSelect"
-          className="form-select"
-          value={startPubID}
-          onChange={(e) => setStartPubID(e.target.value)}
-          required
-        >
-          <option value="" disabled>
-            Select starting pub
-          </option>
-          {pubs.map((pub) => (
-            <option key={pub.id} value={pub.id}>
-              {pub.name}
+    <div className="container mt-4">
+      <h2 className="mb-4">Plan Your Pub Route</h2>
+      <form onSubmit={handleSubmit} className="row g-3">
+        <div className="col-md-6">
+          <label htmlFor="fromSelect" className="form-label">
+            From:
+          </label>
+          <select
+            id="fromSelect"
+            className="form-select"
+            value={startPubID}
+            onChange={(e) => setStartPubID(e.target.value)}
+            required
+          >
+            <option value="" disabled>
+              Select starting pub
             </option>
-          ))}
-        </select>
-      </div>
+            {pubs.map((pub) => (
+              <option key={pub.id} value={pub.id}>
+                {pub.name}
+              </option>
+            ))}
+          </select>
+        </div>
 
-      <div className="mb-3">
-        <label htmlFor="toSelect" className="form-label">To:</label>
-        <select
-          id="toSelect"
-          className="form-select"
-          value={endPubID}
-          onChange={(e) => setEndPubID(e.target.value)}
-          required
-        >
-          <option value="" disabled>
-            Select destination pub
-          </option>
-          {pubs.map((pub) => (
-            <option key={pub.id} value={pub.id}>
-              {pub.name}
+        <div className="col-md-6">
+          <label htmlFor="toSelect" className="form-label">
+            To:
+          </label>
+          <select
+            id="toSelect"
+            className="form-select"
+            value={endPubID}
+            onChange={(e) => setEndPubID(e.target.value)}
+            required
+          >
+            <option value="" disabled>
+              Select destination pub
             </option>
-          ))}
-        </select>
+            {pubs.map((pub) => (
+              <option key={pub.id} value={pub.id}>
+                {pub.name}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <div className="col-12">
+          <button className="btn btn-success w-100" type="submit">
+            Get Route
+          </button>
+        </div>
+      </form>
+
+      <div className="mt-4">
+        {route.length > 0 && ( // Only show this section if the route array has items
+          <>
+            <h4>Route:</h4>
+            <ol className="list-group list-group-numbered">
+              {fullRoute.map((pub) => (
+                <li className="list-group-item" key={pub.id}>
+                  {pub.name}
+                </li>
+              ))}
+            </ol>
+          </>
+        )}
       </div>
-
-      <button className="btn btn-primary" type="submit">
-        Get Route
-      </button>
-    </form>
-
-
-    <br >
-    </br>
-
-    <ol>
-        {fullRoute.map((pub) => <li key={pub.id}>{pub.name}</li>)}
-    </ol>
     </div>
-    
   );
 }
 
