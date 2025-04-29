@@ -6,7 +6,7 @@ function PubNavbar({setActiveSection}) {
 
     return (
         <>
-        <nav className="navbar navbar-expand-lg" style={{ backgroundColor: "#D4E9D4", userSelect: "none" }}>
+        <nav className="navbar navbar-expand-lg" style={{ backgroundColor: "#D4E9D4", userSelect: "none", height: "13vh" }}>
             <div className="container-fluid">
             <h1 className="my-3 mx-5" style={{ fontFamily: "'Crimson Pro', serif" }}>WearsMyPint?</h1>
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
