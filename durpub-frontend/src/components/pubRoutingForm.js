@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import 'bootstrap/dist/js/bootstrap.bundle.min.js'; 
 
 function PubRoutingForm({ pubs, route, setRoute }) {
   const [startPubID, setStartPubID] = useState("");
   const [endPubID, setEndPubID] = useState("");
+  const [savedRoutes, setSavedRoutes] = useState([])
+  const [currentRoute, setCurrentRoute] = useState([])
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -25,12 +28,45 @@ function PubRoutingForm({ pubs, route, setRoute }) {
 
   // fullRoute just takes the ids and provides context to them 
   // e.g. matches the id to the pub.json data
-  const fullRoute = (route || []).map((id) =>
-    pubs.find((pub) => pub.id === id)
-  );
+  useEffect(() => {
+    const fullRoute = (route || []).map((id) =>
+      pubs.find((pub) => pub.id === id)
+    );
+    setCurrentRoute(fullRoute);
+  }, [route, pubs]);
+
+  function handleSave() {
+
+    let routeID = 0
+    let existingRoutes = []
+
+    const stored = localStorage.getItem("savedRoutes");
+    if (stored) {
+      existingRoutes = JSON.parse(stored);
+      routeID = existingRoutes[existingRoutes.length - 1].routeID + 1
+    }
+
+    const routeToAdd = {
+      routeID: routeID,
+      route : currentRoute
+    }
+
+    const updatedRoutes = [...existingRoutes, routeToAdd];
+
+    setSavedRoutes(updatedRoutes)
+    localStorage.setItem("savedRoutes", JSON.stringify(updatedRoutes))
+  }
+
+  function handleClear() {
+
+    localStorage.removeItem("savedRoutes")
+
+    setSavedRoutes([])
+
+  }
 
   return (
-    <div className="container mt-4">
+    <div className="container mt-4 my-5">
       <h2 className="mb-4">Plan Your Pub Route</h2>
       <form onSubmit={handleSubmit} className="row g-3">
         <div className="col-md-6">
@@ -89,7 +125,7 @@ function PubRoutingForm({ pubs, route, setRoute }) {
           <>
             <h4>Route:</h4>
             <ol className="list-group list-group-numbered">
-              {fullRoute.map((pub) => (
+              {currentRoute.map((pub) => (
                 <li className="list-group-item" key={pub.id}>
                   {pub.name}
                 </li>
@@ -98,6 +134,32 @@ function PubRoutingForm({ pubs, route, setRoute }) {
           </>
         )}
       </div>
+
+      <div className="col-12 my-4">
+          <button className="btn btn-success w-100" type="button" onClick={() => handleSave()}>
+            Save Route
+          </button>
+      </div>
+
+      <div className="col-12 my-4">
+        <div className="dropdown">
+          <button className="btn btn-secondary dropdown-toggle w-100" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Previous Routes
+          </button>
+          <ul className="dropdown-menu">
+            {savedRoutes.map((savedRoute) => (
+              <li><button className="dropdown-item" onClick={() => setCurrentRoute(savedRoute.route)}>{savedRoute.route[0].name} to {savedRoute.route[savedRoute.route.length - 1].name}</button></li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      <div className="col-12 my-4">
+          <button className="btn btn-success w-100" type="button" onClick={() => handleClear()}>
+            Clear Previous Routes
+          </button>
+      </div>
+
     </div>
   );
 }
