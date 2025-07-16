@@ -156,15 +156,6 @@ app.post('/api/pint', (req,resp) => {
   try {
     //Create a variable for each part of the submitted request
     const {id, drink, price }  = req.body;
-
-    console.log("Server Recived Pub ID: ",id)
-    console.log("Server Recived Drink Name: ",drink)
-    console.log("Server Recived Price: ",price)
-
-    //Edge case to check if price data sent is correct
-    if (price > 10) {
-      return resp.status(400).send({ error: "Price must be below £10." });
-    }
     //create variable of the JSON file pintPricing.json
     const JSONfile = JSON.parse(fs.readFileSync('./pintPricing.json', 'utf8'));
     //Create new object to be appeneded to the JSON file
@@ -173,6 +164,9 @@ app.post('/api/pint', (req,resp) => {
       drink: drink,
       price: parseFloat(price)
     }
+    console.log("Server Recived Pub ID: ",id)
+    console.log("Server Recived Drink Name: ",drink)
+    console.log("Server Recived Price: ",price)
     //Add the object to the JSON file variable 
     JSONfile.push(newEntry);
     
