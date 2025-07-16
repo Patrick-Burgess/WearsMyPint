@@ -16,10 +16,29 @@ app.use(express.json());
 // Load the pubs JSON data
 const pubs = require("./pubs.json");
 const pints = require("./pintPricing.json")
-// Define an endpoint to get pubs
+
+
+
+//Endpoint for Get requests
 app.get("/api/pubs", (req, res) => {
-  res.json(pubs);
+  if (pubs && pubs.length > 0){
+    res.status(200).json(pubs);
+  } else {
+    res.status(404).json({ message: "No pubs found." })
+  }
 });
+app.get('/api/pint', (req,res) => {
+  if (pints && pints.length > 0){
+    res.status(200).json(pints);
+  } else {
+    res.status(404).json({ message: "No pints found." })
+  }
+});
+
+
+
+
+
 
 // I would like to modularise this but i don't know how ?
 // !!!!!! THIS ONLY WORKS FOR SMALL INPUT i.e. < 10 pubs (as its O(n!))
@@ -166,16 +185,7 @@ app.post('/api/pint', (req,resp) => {
   }
 });
 
-app.get('/api/pint', (req,resp) => {
-  try{
-    //Repond back with sucess code 200 and pintPricing.json
-    resp.status(200).json(pints)
-  }catch (error){
-    //Generic error
-    resp.status(500).send({error: error.message});
-  }
 
-});
 
 
 
